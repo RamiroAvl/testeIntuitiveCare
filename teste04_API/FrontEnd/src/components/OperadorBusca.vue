@@ -50,9 +50,10 @@ export default {
       this.carregando = true;
       this.erro = "";
       this.buscaRealizada = true;
-
+      
+      const apiURL = import.meta.env.VITE_API_ENDPOINT
       try {
-        const resposta = await fetch(`http://localhost:5000/busca?termo=${this.searchTerm}`);
+        const resposta = await fetch(`${apiURL}/busca?termo=${this.searchTerm}`);
         let dados = await resposta.json();
 
         this.resultados = dados
